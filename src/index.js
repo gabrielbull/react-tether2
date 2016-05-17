@@ -71,10 +71,15 @@ export default function (...args) {
       move(tetherElement) {
         const element = ReactDOM.findDOMNode(this);
         const offset = element.offsetParent.getBoundingClientRect();
-        const matches = tetherElement.style.transform.match(/translateX\((\d*)p?x?\) translateY\((\d*)p?x?\) translateZ\((\d*)p?x?\)/);
-        let translateX = Math.round(matches[1] - offset.left);
-        let translateY = Math.round(matches[2] - offset.top);
-        let translateZ = matches[3];
+        var doc = document.documentElement;
+        var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+        const matches = tetherElement.style.transform.match(/translateX\((\-?\d*)p?x?\) translateY\((\-?\d*)p?x?\) translateZ\((\-?\d*)p?x?\)/);
+        let translateX, translateY, translateZ;
+        if (matches && matches[1] && matches[2] && matches[3]) {
+          translateX = Math.floor(matches[1] - offset.left);
+          translateY = Math.floor(matches[2] - (offset.top + top));
+          translateZ = matches[3];
+        }
 
         this.unmappedProps = this.getProps(tetherElement.className);
         if (typeof mapStateToProps === 'function' && this.unmappedProps && (!this.prevUnmappedProps || !shallowEqual(this.unmappedProps, this.prevUnmappedProps))) {
@@ -96,7 +101,7 @@ export default function (...args) {
         let props = {};
         for (let i = 0, len = classes.length; i < len; ++i) {
           let name = classes[i].replace('tether-', '');
-          name = name.replace(/(\-.)/g, function (match, content, offset, string) {
+          name = name.replace(/(\-.)/g, function (match, content) {
             return content.toUpperCase().replace('-', '');
           });
           if (exempt.indexOf(name) === -1) props[name] = true;
