@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import tether from '../../src/index';
+import tether from '../../../src/index';
 
 const style = {
   background: 'blue',

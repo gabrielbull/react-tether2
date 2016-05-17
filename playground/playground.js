@@ -1,16 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import Target from './component/target';
-import Source from './component/source';
+import Example1 from './examples/example1';
+import Example2 from './examples/example2';
 
 class Playground extends Component {
-  getTarget = () => this.refs.target;
-
   render() {
+//        <Example1/>
+
     return (
-      <div style={{ background: 'red', position: 'relative', padding: '20px' }}>
-        <Target ref="target"/>
-        <Source target={this.getTarget}/>
-        <div style={{ background: 'purple', height: '200px' }}/>
+      <div>
+        <Example2/>
       </div>
     );
   }

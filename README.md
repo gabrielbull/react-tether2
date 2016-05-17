@@ -61,3 +61,29 @@ class App extends Component {
 
 ReactDOM.render(<App/>, document.body);
 ```
+
+### tether([options], [mapStateToProps], [props])
+
+#### options(ownProps): options (Function)
+
+#### mapStateToProps(state, ownProps, tether): props (Function)
+
+The state is what tether usually provides as classes:
+
+ * elementAttachedLeft 
+ * elementAttachedRight
+ * elementAttachedTop
+ * elementAttachedBottom
+ * elementAttachedMiddle
+ * elementAttachedCenter
+ * targetAttachedLeft 
+ * targetAttachedRight
+ * targetAttachedTop
+ * targetAttachedBottom
+ * targetAttachedMiddle
+ * targetAttachedCenter
+
+### props (Object)
+
+Props passed to the wrapper component. For instance, pass the style prop to provide custom styling like zIndex to the tethered component.
+
