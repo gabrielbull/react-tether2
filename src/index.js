@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Tether from 'tether';
 import shallowEqual from './utils/shallowEqual';
 
+export Overflow from './overflow';
 
 export default function (...args) {
   let optionsFunction, mapStateToProps, wrapperProps;
@@ -34,7 +35,7 @@ export default function (...args) {
 
       componentDidMount() {
         if (typeof optionsFunction === 'function') {
-          let options = optionsFunction(this.props);
+          let options = optionsFunction({ ...this.props, ...this.refs.wrappedComponent.props });
           if (options) {
             const element = ReactDOM.findDOMNode(this);
             const elementRect = element.getBoundingClientRect();
@@ -84,7 +85,7 @@ export default function (...args) {
         this.unmappedProps = this.getProps(tetherElement.className);
         if (typeof mapStateToProps === 'function' && this.unmappedProps && (!this.prevUnmappedProps || !shallowEqual(this.unmappedProps, this.prevUnmappedProps))) {
           this.prevUnmappedProps = { ...this.unmappedProps };
-          this.mappedProps = mapStateToProps(this.unmappedProps, this.props, this.tether);
+          this.mappedProps = mapStateToProps(this.unmappedProps, { ...this.props, ...this.refs.wrappedComponent.props }, this.tether);
         }
 
         this.setState({
@@ -128,7 +129,11 @@ export default function (...args) {
           componentStyle.transform = this.state.transform;
         }
 
-        return <div style={componentStyle} {...props}><WrappedComponent {...{...this.props, ...this.state.props}}/></div>;
+        return (
+          <div style={componentStyle} {...props}>
+            <WrappedComponent ref="wrappedComponent" {...{...this.props, ...this.state.props}}/>
+          </div>
+        );
       }
     };
   }
