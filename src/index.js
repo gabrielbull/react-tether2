@@ -4,6 +4,7 @@ import Tether from 'tether';
 import shallowEqual from './utils/shallowEqual';
 
 export Overflow from './overflow';
+export Dropdown from './dropdown';
 
 export default function (...args) {
   let optionsFunction, mapStateToProps, wrapperProps;
