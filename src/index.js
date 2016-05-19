@@ -74,9 +74,9 @@ export default function (...args) {
 
       move(tetherElement) {
         const element = ReactDOM.findDOMNode(this);
-        const offset = element.offsetParent.getBoundingClientRect();
-        var doc = document.documentElement;
-        var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+        const elementOffset = element.offsetParent.getBoundingClientRect();
+        const doc = document.documentElement;
+        const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
 
         this.tether.element.style.display = 'block';
         const tetherOffset = tetherElement.getBoundingClientRect();
@@ -89,8 +89,8 @@ export default function (...args) {
         }
 
         let translateX, translateY, translateZ;
-        translateX = tetherOffset.left - Math.round(offset.left);
-        translateY = tetherOffset.top - Math.round(offset.top + top);
+        translateX = Math.round(tetherOffset.left - Math.round(elementOffset.left));
+        translateY = Math.round(tetherOffset.top - Math.round(elementOffset.top + top));
         translateZ = 0;
 
         this.setState({

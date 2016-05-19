@@ -1,7 +1,7 @@
 {
   "name": "react-tether2",
   "author": "Gabriel Bull",
-  "version": "0.1.5",
+  "version": "0.1.10",
   "description": "Simple react wrapper around Tether from Hub Spot",
   "main": "./lib/index.js",
   "keywords": [
@@ -23,6 +23,7 @@
     "eslint": "./node_modules/.bin/eslint ./src ./test",
     "build": "./node_modules/.bin/babel ./src --out-dir ./lib",
     "playground": "./node_modules/.bin/webpack-dev-server --config ./playground/webpack.config.js --colors --inline --port 3005",
+    "prepublish": "npm run eslint && npm run test && npm run build",
     "test": "./node_modules/.bin/mocha test"
   },
   "dependencies": {
