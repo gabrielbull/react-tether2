@@ -25,6 +25,7 @@ export default function (...args) {
 
   return function (WrappedComponent) {
     return class extends Component {
+      options;
       mappedProps;
       unmappedProps;
       prevUnmappedProps;
@@ -57,6 +58,7 @@ export default function (...args) {
       }
 
       initTether(options) {
+        this.options = options;
         this.tether = new Tether(options);
         const self = this;
 
@@ -80,16 +82,16 @@ export default function (...args) {
         const tetherOffset = tetherElement.getBoundingClientRect();
         this.tether.element.style.display = 'none';
 
-        let translateX, translateY, translateZ;
-        translateX = Math.floor(tetherOffset.left - offset.left);
-        translateY = Math.floor(tetherOffset.top - (offset.top + top));
-        translateZ = 0;
-
         this.unmappedProps = this.getProps(tetherElement.className);
         if (typeof mapStateToProps === 'function' && this.unmappedProps && (!this.prevUnmappedProps || !shallowEqual(this.unmappedProps, this.prevUnmappedProps))) {
           this.prevUnmappedProps = { ...this.unmappedProps };
           this.mappedProps = mapStateToProps(this.unmappedProps, { ...this.props, ...this.refs.wrappedComponent.props }, this.tether);
         }
+
+        let translateX, translateY, translateZ;
+        translateX = tetherOffset.left - Math.round(offset.left);
+        translateY = tetherOffset.top - Math.round(offset.top + top);
+        translateZ = 0;
 
         this.setState({
           props: this.mappedProps,
