@@ -75,13 +75,15 @@ export default function (...args) {
         const offset = element.offsetParent.getBoundingClientRect();
         var doc = document.documentElement;
         var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-        const matches = tetherElement.style.transform.match(/translateX\((\-?\d*)p?x?\) translateY\((\-?\d*)p?x?\) translateZ\((\-?\d*)p?x?\)/);
+
+        this.tether.element.style.display = 'block';
+        const tetherOffset = tetherElement.getBoundingClientRect();
+        this.tether.element.style.display = 'none';
+
         let translateX, translateY, translateZ;
-        if (matches && matches[1] && matches[2] && matches[3]) {
-          translateX = Math.floor(matches[1] - offset.left);
-          translateY = Math.floor(matches[2] - (offset.top + top));
-          translateZ = matches[3];
-        }
+        translateX = Math.floor(tetherOffset.left - offset.left);
+        translateY = Math.floor(tetherOffset.top - (offset.top + top));
+        translateZ = 0;
 
         this.unmappedProps = this.getProps(tetherElement.className);
         if (typeof mapStateToProps === 'function' && this.unmappedProps && (!this.prevUnmappedProps || !shallowEqual(this.unmappedProps, this.prevUnmappedProps))) {
@@ -93,8 +95,6 @@ export default function (...args) {
           props: this.mappedProps,
           transform: `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`
         });
-
-        this.tether.element.style.display = 'none';
       }
 
       getProps(className) {
