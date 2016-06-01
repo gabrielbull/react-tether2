@@ -44,8 +44,8 @@ export default function (...args) {
 
             this.domNode = document.createElement('div');
             this.domNode.style.position = 'absolute';
-            this.domNode.style.width = elementRect.width + 'px';
-            this.domNode.style.height = elementRect.height + 'px';
+            this.domNode.style.width = Math.floor(elementRect.width) + 'px';
+            this.domNode.style.height = Math.floor(elementRect.height) + 'px';
             document.body.appendChild(this.domNode);
 
             options.element = this.domNode;
@@ -93,9 +93,11 @@ export default function (...args) {
         translateY = Math.round(tetherOffset.top - Math.round(elementOffset.top + top));
         translateZ = 0;
 
+        const transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
+
         this.setState({
           props: this.mappedProps,
-          transform: `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`
+          transform
         });
       }
 

@@ -41,7 +41,7 @@ class Dropdown extends Component {
     if (nextProps.reversed && !this.props.reversed) {
       let target = typeof this.props.target === 'function' ? this.props.target() : this.props.target;
       if (!(target instanceof HTMLElement)) target = ReactDOM.findDOMNode(this.props.target);
-      const width = target.getBoundingClientRect().width;
+      const width = Math.round(target.getBoundingClientRect().width);
       this.setState({
         offset: width
       });
