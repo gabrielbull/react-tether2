@@ -124,10 +124,10 @@ export default function (...args) {
         const { style, ...props } = wrapperProps;
 
         const componentStyle = {
-          ...style,
           position: 'absolute',
           top: 0,
-          left: 0
+          left: 0,
+          ...style
         };
 
         if (this.state.transform) {
