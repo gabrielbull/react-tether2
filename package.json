@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "gulp copy-playground && PROD_DEV=1 webpack && gulp bundle",
-    "playground": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --colors --inline --port 3000",
+    "playground": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --colors --inline --port 3002",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
