@@ -136,7 +136,7 @@ export default function (...args) {
 
         return (
           <div style={componentStyle} {...props}>
-            <WrappedComponent ref="wrappedComponent" { ...{ ...this.props, ...this.state.props } }/>
+            <WrappedComponent ref="wrappedComponent" {...{ ...this.props, ...this.state.props }}/>
           </div>
         );
       }
