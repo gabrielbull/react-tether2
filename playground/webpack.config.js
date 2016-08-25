@@ -17,6 +17,13 @@ module.exports = {
 
   devtool: 'source-map',
 
+  resolve: {
+    root: path.join(__dirname, '..'),
+    alias: {
+      'react-tether2': path.join(__dirname, '..', 'src', 'index')
+    }
+  },
+
   module: {
     loaders: [
       {

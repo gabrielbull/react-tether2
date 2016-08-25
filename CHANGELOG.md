@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.15 (August 25th, 2016)
+
+- Removed unsupported props
+
 ## 0.1.14 (June 2nd, 2016)
 
 - Added a mapStateToProps method

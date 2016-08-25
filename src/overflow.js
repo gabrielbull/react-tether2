@@ -63,6 +63,12 @@ class Overflow extends Component {
       componentStyle.height = this.state.height + 'px';
     }
 
+    delete props.target;
+    delete props.attachment;
+    delete props.targetAttachment;
+    delete props.outOfBoundsBottom;
+    delete props.constraints;
+
     return (
       <div style={componentStyle} {...props}>
         {children}

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Dropdown from '../../../src/dropdown';
+import { Dropdown } from 'react-tether2';
 
 const style = {
   background: 'blue',

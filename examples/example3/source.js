@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Overflow from '../../../src/overflow';
+import { Overflow } from 'react-tether2';
 
 const style = {
   background: 'blue',
