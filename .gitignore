@@ -17,3 +17,5 @@ logs
 npm-debug.log*
 
 /lib
+/yarn.lock
+
