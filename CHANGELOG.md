@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.17 (February 2nd, 2017)
+
+- Fixed issue with element being hidden
+
 ## 0.1.16 (January 19th, 2017)
 
 - Fixed issues with scroll
