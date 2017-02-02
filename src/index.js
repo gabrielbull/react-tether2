@@ -74,29 +74,31 @@ export default function (...args) {
 
       move(tetherElement) {
         const element = ReactDOM.findDOMNode(this);
-        const elementOffset = element.offsetParent.getBoundingClientRect();
+        if (element.offsetParent) {
+          const elementOffset = element.offsetParent.getBoundingClientRect();
 
-        this.tether.element.style.display = 'block';
-        const tetherOffset = tetherElement.getBoundingClientRect();
-        this.tether.element.style.display = 'none';
+          this.tether.element.style.display = 'block';
+          const tetherOffset = tetherElement.getBoundingClientRect();
+          this.tether.element.style.display = 'none';
 
-        this.unmappedProps = this.getProps(tetherElement.className);
-        if (typeof mapStateToProps === 'function' && this.unmappedProps && (!this.prevUnmappedProps || !shallowEqual(this.unmappedProps, this.prevUnmappedProps))) {
-          this.prevUnmappedProps = { ...this.unmappedProps };
-          this.mappedProps = mapStateToProps(this.unmappedProps, { ...this.props, ...this.refs.wrappedComponent.props }, this.tether);
+          this.unmappedProps = this.getProps(tetherElement.className);
+          if (typeof mapStateToProps === 'function' && this.unmappedProps && (!this.prevUnmappedProps || !shallowEqual(this.unmappedProps, this.prevUnmappedProps))) {
+            this.prevUnmappedProps = { ...this.unmappedProps };
+            this.mappedProps = mapStateToProps(this.unmappedProps, { ...this.props, ...this.refs.wrappedComponent.props }, this.tether);
+          }
+
+          let translateX, translateY, translateZ;
+          translateX = Math.round(tetherOffset.left - Math.round(elementOffset.left));
+          translateY = Math.round(tetherOffset.top - Math.round(elementOffset.top));
+          translateZ = 0;
+
+          const transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
+
+          this.setState({
+            props: this.mappedProps,
+            transform
+          });
         }
-
-        let translateX, translateY, translateZ;
-        translateX = Math.round(tetherOffset.left - Math.round(elementOffset.left));
-        translateY = Math.round(tetherOffset.top - Math.round(elementOffset.top));
-        translateZ = 0;
-
-        const transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
-
-        this.setState({
-          props: this.mappedProps,
-          transform
-        });
       }
 
       getProps(className) {
