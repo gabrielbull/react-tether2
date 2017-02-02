@@ -3125,9 +3125,9 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-tether2@^0.1.17:
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/react-tether2/-/react-tether2-0.1.17.tgz#3caccb6aafd5291f2ca0e5f66984c5538769b53a"
+react-tether2@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-tether2/-/react-tether2-0.2.0.tgz#679090c784c5723df76067a67dd06cfab1a4dd1c"
   dependencies:
     tether "^1.4.0"
 

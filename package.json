@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-tether2": "^0.1.17",
+    "react-tether2": "^0.2.0",
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
