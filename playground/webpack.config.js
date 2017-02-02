@@ -5,7 +5,7 @@ module.exports = {
   entry: path.join(__dirname, 'index.js'),
 
   output: {
-    path: './playground',
+    path: path.join(__dirname, 'playground'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -18,7 +18,10 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    root: path.join(__dirname, '..'),
+    modules: [
+      path.join(__dirname, '..'),
+      path.join(__dirname, '..', 'node_modules'),
+    ],
     alias: {
       'react-tether2': path.join(__dirname, '..', 'src', 'index')
     }
@@ -29,7 +32,7 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       }
     ]
   },
