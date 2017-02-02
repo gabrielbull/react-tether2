@@ -10,14 +10,14 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  devtool: PROD ? null : 'source-map',
+  devtool: PROD ? false : 'source-map',
 
   module: {
     loaders: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       }
     ]
   },
