@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Target from './example4/target';
 import Source from './example4/source';
 
-class Example3 extends Component {
+class Example4 extends Component {
   getTarget = () => this.refs.target;
 
   render() {
@@ -17,4 +17,4 @@ class Example3 extends Component {
   }
 }
 
-export default Example3;
+export default Example4;

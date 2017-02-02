@@ -3,6 +3,7 @@ import Example1 from '../examples/example1';
 import Example2 from '../examples/example2';
 import Example3 from '../examples/example3';
 import Example4 from '../examples/example4';
+import DynamicallySizedSource from '../examples/dynamically-sized-source';
 
 const style = {
   zIndex: '1000',
@@ -33,6 +34,7 @@ class Playground extends Component {
     case '2': example = <Example2/>; break;
     case '3': example = <Example3/>; break;
     case '4': example = <Example4/>; break;
+    case '5': example = <DynamicallySizedSource/>; break;
     }
 
     return (
@@ -56,6 +58,11 @@ class Playground extends Component {
           <label>
             <input type="radio" name="example" value="4" checked={this.state.example === '4'} onChange={() => this.change('4')}/>
             Example 4
+          </label>
+          <br/>
+          <label>
+            <input type="radio" name="example" value="5" checked={this.state.example === '5'} onChange={() => this.change('5')}/>
+            Dynamically Sized Source
           </label>
         </div>
 

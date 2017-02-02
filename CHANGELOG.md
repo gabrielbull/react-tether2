@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.0 (February 2nd, 2017)
+
+- Fixed bugs with dynamically sized sources
+
 ## 0.1.17 (February 2nd, 2017)
 
 - Fixed issue with element being hidden

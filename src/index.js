@@ -35,6 +35,29 @@ export default function (...args) {
         this.state = { transform: null, props: null };
       }
 
+      componentWillMount() {
+        if (typeof window !== 'undefined' && typeof window.addEventListener !== 'undefined') {
+          window.addEventListener('resize', this.handleResize);
+        }
+      }
+
+      handleResize = () => {
+        const element = ReactDOM.findDOMNode(this);
+        const elementRect = element.getBoundingClientRect();
+        let update = false;
+        if (this.tether.lastSize.width !== Math.floor(elementRect.width)) {
+          this.tether.lastSize.width = Math.floor(elementRect.width);
+          this.domNode.style.width = this.tether.lastSize.width + 'px';
+          update = true;
+        }
+        if (this.tether.lastSize.height !== Math.floor(elementRect.height)) {
+          this.tether.lastSize.height = Math.floor(elementRect.height);
+          this.domNode.style.height = this.tether.lastSize.height + 'px';
+          update = true;
+        }
+        if (update) this.tether.position();
+      };
+
       componentDidMount() {
         if (typeof optionsFunction === 'function') {
           let options = optionsFunction({ ...this.props, ...this.refs.wrappedComponent.props });
@@ -116,6 +139,9 @@ export default function (...args) {
       }
 
       componentWillUnmount() {
+        if (typeof window !== 'undefined' && typeof window.removeEventListener !== 'undefined') {
+          window.removeEventListener('resize', this.handleResize);
+        }
         this.domNode.parentNode.removeChild(this.domNode);
         this.tether.destroy();
       }
