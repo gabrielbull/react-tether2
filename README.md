@@ -1,5 +1,7 @@
 # React Tether 2
 
+[![Join the chat at https://gitter.im/gabrielbull/react-tether2](https://badges.gitter.im/gabrielbull/react-tether2.svg)](https://gitter.im/gabrielbull/react-tether2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/gabrielbull/react-tether2.svg?branch=master)](https://travis-ci.org/gabrielbull/react-tether2)
 [![Code Climate](https://codeclimate.com/github/gabrielbull/react-tether2/badges/gpa.svg)](https://codeclimate.com/github/gabrielbull/react-tether2)
 [![Dependency Status](https://david-dm.org/gabrielbull/react-tether2.svg)](https://david-dm.org/gabrielbull/react-tether2)
