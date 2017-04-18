@@ -3,6 +3,8 @@
 ## 0.3.0 (...)
 
 - Changed PropTypes import to new package for React 16 compatibility
+- Added typescript definitions
+
 ## 0.2.0 (February 2nd, 2017)
 
 - Fixed bugs with dynamically sized sources
