@@ -13,11 +13,11 @@ module.exports = {
   devtool: PROD ? false : 'source-map',
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
       }
     ]
   },
