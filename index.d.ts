@@ -24,7 +24,7 @@ declare namespace ReactTether {
   };
 
   type TetherSpec = {
-    target: ReactNode | ReactElement | HTMLElement;
+    target: ReactNode | ReactElement<any> | HTMLElement;
     attachment?: TetherAttachment;
     targetAttachment?: TetherAttachment;
     offset?: string;
@@ -55,9 +55,9 @@ declare namespace ReactTether {
     'targetAttachedCenter'
     >;
 
-  export default function tether<P, T extends Component<P, ComponentState>, C extends ComponentClass<P>>(
+  export default function tether<P, T extends Component<P, ComponentState>>(
     options: (ownProps: any) => TetherSpec,
     mapStateToProps?: (state: TetherState, ownProps: any, tether: any) => void,
     props?: any
-  ): ClassType<P, T, C>
+  ): ClassType<P, T, any>
 }
