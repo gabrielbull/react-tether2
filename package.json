@@ -9,7 +9,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-tether2": "^0.3.1"
+    "react-tether2": "^0.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

@@ -3744,9 +3744,9 @@ react-dom@^15.5.4:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
-react-tether2@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/react-tether2/-/react-tether2-0.3.1.tgz#b51d9cada19fc5ad97a1ee8cf636f5b0974b1ea7"
+react-tether2@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/react-tether2/-/react-tether2-0.3.2.tgz#e7962e3033496c92b099515053989719eb6e6a65"
   dependencies:
     tether "^1.4.0"
 
