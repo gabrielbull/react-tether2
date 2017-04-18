@@ -83,7 +83,7 @@ The state is what tether usually provides as classes:
  * targetAttachedMiddle
  * targetAttachedCenter
 
-### props (Object)
+#### props (Object)
 
 Props passed to the wrapper component. For instance, pass the style prop to provide custom styling like zIndex to the tethered component.
 

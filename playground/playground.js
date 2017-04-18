@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Example1 from '../examples/example1';
 import Example2 from '../examples/example2';
 import Example3 from '../examples/example3';
