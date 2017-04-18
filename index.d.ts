@@ -1,7 +1,7 @@
 export as namespace ReactTether;
 export = ReactTether;
 
-import {Component, ReactElement, ReactNode} from 'react';
+import {Component, ReactElement, ReactNode, ComponentState, ComponentClass, ClassType} from 'react';
 
 declare namespace ReactTether {
   type TetherAttachment =
@@ -53,11 +53,11 @@ declare namespace ReactTether {
     'targetAttachedBottom' |
     'targetAttachedMiddle' |
     'targetAttachedCenter'
-  >;
+    >;
 
-  function tether(
+  export default function tether<P, T extends Component<P, ComponentState>, C extends ComponentClass<P>>(
     options: (ownProps: any) => TetherSpec,
     mapStateToProps?: (state: TetherState, ownProps: any, tether: any) => void,
     props?: any
-  ): Component;
+  ): ClassType<P, T, C>
 }

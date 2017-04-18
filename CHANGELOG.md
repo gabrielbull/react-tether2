@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.1 (April 17th, 2017)
+
+- Fixed typescript definitions
+
 ## 0.3.0 (April 17th, 2017)
 
 - Changed PropTypes import to new package for React 16 compatibility

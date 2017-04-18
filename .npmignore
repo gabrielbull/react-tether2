@@ -5,9 +5,11 @@
 /.babelrc
 /.codeclimate.yml
 /.editorconfig
-/.eslintrc
+/.eslintrc.yml
 /.npmignore
 /.travis.yml
 /npm-debug.log
 /src
+/examples
+/yarn.lock
 

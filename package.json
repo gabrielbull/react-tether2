@@ -1,7 +1,7 @@
 {
   "name": "react-tether2",
   "author": "Gabriel Bull",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple react wrapper around Tether from Hub Spot",
   "main": "./lib/index.js",
   "types": "./index.d.ts",
