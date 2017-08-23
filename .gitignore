@@ -18,4 +18,4 @@ npm-debug.log*
 
 /lib
 /yarn.lock
-
+/package-lock.json
