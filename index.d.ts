@@ -3,7 +3,7 @@ export = ReactTether;
 
 import {Component, ReactElement, ReactNode, ComponentState, ComponentClass, ClassType} from 'react';
 
-declare namespace ReactTether {
+declare module "react-tether2" {
   type TetherAttachment =
     'bottom left' | 'bottom center' | 'bottom right' |
     'middle left' | 'middle center' | 'middle right' |
