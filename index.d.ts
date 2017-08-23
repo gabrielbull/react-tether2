@@ -1,7 +1,4 @@
-export as namespace ReactTether;
-export = ReactTether;
-
-import {Component, ReactElement, ReactNode, ComponentState, ComponentClass, ClassType} from 'react';
+import {Component, ReactElement, ReactNode, ComponentState, ClassType} from 'react';
 
 declare module "react-tether2" {
   type TetherAttachment =

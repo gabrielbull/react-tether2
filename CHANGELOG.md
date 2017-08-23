@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.4 (August 23rd, 2017)
+
+- Fixed typescript definitions
+
 ## 0.3.3 (August 23rd, 2017)
 
 - Fixed typescript definitions
