@@ -71,6 +71,8 @@ export default function (...args) {
             this.domNode.style.height = Math.floor(elementRect.height) + 'px';
             document.body.appendChild(this.domNode);
 
+            for (let i = 0; i < 4; ++i) setTimeout(this.handleResize, i ? 10^i : 0);
+
             options.element = this.domNode;
             if (!(options.target instanceof HTMLElement) && typeof options.target === 'object') {
               options.target = ReactDOM.findDOMNode(options.target);

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.5 (August 30th, 2017)
+
+- Added failsafe for elements rendering changing size
+
 ## 0.3.4 (August 23rd, 2017)
 
 - Fixed typescript definitions
